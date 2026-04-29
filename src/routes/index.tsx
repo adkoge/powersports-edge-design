@@ -95,7 +95,7 @@ function Index() {
             width={1920}
             height={1280}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/20 to-background" />
+          <div className="absolute inset-0 bg-foreground/30" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6 py-20">
