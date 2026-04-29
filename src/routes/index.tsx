@@ -95,7 +95,7 @@ function Index() {
             width={1920}
             height={1280}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/85" />
+          <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/20 to-background" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6 py-20">
@@ -123,7 +123,7 @@ function Index() {
       </section>
 
       {/* OUR BRANDS */}
-      <section className="border-t border-border bg-surface">
+      <section className="border-t border-border bg-background">
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div className="mb-10 flex items-end justify-between">
             <div>
@@ -163,9 +163,9 @@ function Index() {
 
 function DealerCard({ name, city, phone }: Location) {
   return (
-    <article className="group relative overflow-hidden rounded-xl border border-border bg-surface/80 backdrop-blur-md transition-all hover:-translate-y-1 hover:border-ignite/60 hover:bg-surface">
+    <article className="group relative overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:border-ignite hover:shadow-xl hover:shadow-ignite/10">
       {/* Top accent bar */}
-      <div className="h-1 w-full bg-gradient-to-r from-ignite via-ignite to-ignite/30" />
+      <div className="h-1 w-full bg-ignite" />
 
       <div className="p-6">
         <h3 className="font-display text-xl font-black uppercase leading-tight tracking-tight min-h-[3.5rem]">
