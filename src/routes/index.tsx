@@ -99,19 +99,6 @@ function Index() {
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6 py-20">
-          {/* Heading */}
-          <div className="mb-12 max-w-2xl">
-            <div className="flex items-center gap-3">
-              <span className="h-px w-10 bg-ignite" />
-              <span className="font-display text-xs font-bold uppercase tracking-[0.4em] text-ignite">
-                Six Dealerships · Three States
-              </span>
-            </div>
-            <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.95] tracking-tight text-white drop-shadow-lg md:text-6xl">
-              Find your <span className="text-ignite">dealer</span>.<br />
-              Start your <span className="text-ignite">ride</span>.
-            </h1>
-          </div>
 
           {/* Dealer cards */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
