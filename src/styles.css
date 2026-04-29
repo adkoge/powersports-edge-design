@@ -66,6 +66,7 @@
   --color-ignite-foreground: var(--ignite-foreground);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
+  --color-steel: var(--steel);
 }
 
 :root {
