@@ -67,18 +67,6 @@ function Index() {
           />
           <div className="absolute inset-0 bg-foreground/30" />
         </div>
-      <section className="relative">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt="UTVs racing across red rock desert terrain"
-            className="h-full w-full object-cover"
-            width={1920}
-            height={1280}
-          />
-          <div className="absolute inset-0 bg-foreground/30" />
-        </div>
 
         <div className="relative mx-auto max-w-7xl px-6 py-20">
 
