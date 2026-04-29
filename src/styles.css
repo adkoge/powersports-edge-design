@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -59,12 +60,23 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Barlow Condensed", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --color-ignite: var(--ignite);
+  --color-ignite-foreground: var(--ignite-foreground);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  /* Edgy powersports dark theme */
+  --background: oklch(0.16 0.012 250);
+  --foreground: oklch(0.97 0.005 250);
+  --surface: oklch(0.20 0.014 250);
+  --surface-elevated: oklch(0.24 0.016 250);
+  --ignite: oklch(0.72 0.22 45);          /* aggressive orange */
+  --ignite-foreground: oklch(0.12 0.01 250);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
