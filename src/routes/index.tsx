@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { MapPin, Phone, Search, Monitor, Tag, ChevronDown, Zap, ArrowRight, Users } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { MapPin, Phone, Monitor, Tag, ArrowRight, Users } from "lucide-react";
 import heroImg from "@/assets/hero-utv.jpg";
 import { BrandsCarousel } from "@/components/BrandsCarousel";
 import offroadImg from "@/assets/category-offroad.jpg";
@@ -51,58 +51,9 @@ const locations: Location[] = [
   { name: "Elway Powersports of Laramie", city: "Laramie, WY", phone: "307-400-3537" },
 ];
 
-const navItems = [
-  { label: "Home", hasMenu: false },
-  { label: "Inventory", hasMenu: true },
-  { label: "Corporate", hasMenu: true },
-  { label: "Contact", hasMenu: false },
-];
-
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* TOP NAV — original layout: logo + links left, search right */}
-      <header className="relative z-30 border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
-          <a href="/" className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-ignite text-ignite-foreground">
-              <Zap className="h-5 w-5" strokeWidth={2.5} />
-            </span>
-            <span className="font-display text-lg font-black uppercase tracking-wider">
-              Elway Powersports
-            </span>
-          </a>
-
-          <nav className="hidden items-center gap-1 md:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href="#"
-                className="flex items-center gap-1 rounded-md px-4 py-2 font-display text-sm font-bold uppercase tracking-wider text-foreground/80 transition-colors hover:bg-surface hover:text-ignite"
-              >
-                {item.label}
-                {item.hasMenu && <ChevronDown className="h-3.5 w-3.5" />}
-              </a>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-2 rounded-md border border-border bg-surface pl-3 pr-1 py-1 focus-within:border-ignite transition-colors">
-            <Search className="h-4 w-4 text-muted-foreground" />
-            <input
-              type="text"
-              placeholder="Inventory Search"
-              className="w-44 bg-transparent py-1.5 text-sm text-foreground outline-none placeholder:text-muted-foreground"
-            />
-            <button
-              aria-label="Search"
-              className="flex h-7 w-7 items-center justify-center rounded bg-ignite text-ignite-foreground transition-transform hover:-translate-y-0.5"
-            >
-              <Search className="h-3.5 w-3.5" strokeWidth={2.5} />
-            </button>
-          </div>
-        </div>
-      </header>
-
+    <div>
       {/* HERO + DEALER GRID */}
       <section className="relative">
         {/* Background */}
@@ -263,20 +214,6 @@ function Index() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-border bg-background">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-6 py-8 text-sm text-muted-foreground md:flex-row md:items-center">
-          <div className="flex items-center gap-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded bg-ignite text-ignite-foreground">
-              <Zap className="h-4 w-4" strokeWidth={2.5} />
-            </span>
-            <span className="font-display font-bold uppercase tracking-wider text-foreground">
-              Elway Powersports
-            </span>
-          </div>
-          <p>© {new Date().getFullYear()} Elway Powersports. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }
