@@ -1,7 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MapPin, Phone, Search, Monitor, Tag, ChevronDown, Zap } from "lucide-react";
+import { MapPin, Phone, Search, Monitor, Tag, ChevronDown, Zap, ArrowRight, Users } from "lucide-react";
 import heroImg from "@/assets/hero-utv.jpg";
 import { BrandsCarousel } from "@/components/BrandsCarousel";
+import offroadImg from "@/assets/category-offroad.jpg";
+import motorcyclesImg from "@/assets/category-motorcycles.jpg";
+import snowImg from "@/assets/category-snow.jpg";
+import boatsImg from "@/assets/category-boats.jpg";
+import atvImg from "@/assets/category-atv.jpg";
+import threeWheelsImg from "@/assets/category-3wheels.jpg";
+import watercraftImg from "@/assets/category-watercraft.jpg";
+import scootersImg from "@/assets/category-scooters.jpg";
+
+const categories = [
+  { name: "Off-Road", image: offroadImg },
+  { name: "Motorcycles", image: motorcyclesImg },
+  { name: "Snow", image: snowImg },
+  { name: "Boats", image: boatsImg },
+  { name: "ATV", image: atvImg },
+  { name: "3 Wheels", image: threeWheelsImg },
+  { name: "Watercraft", image: watercraftImg },
+  { name: "Scooters", image: scootersImg },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -127,6 +146,120 @@ function Index() {
           <p className="mt-6 text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">
             Hover to pause · Tap a logo to explore inventory
           </p>
+        </div>
+      </section>
+
+      {/* WELCOME */}
+      <section className="border-t border-border bg-surface">
+        <div className="mx-auto max-w-4xl px-6 py-20 text-center">
+          <div className="flex items-center justify-center gap-3">
+            <span className="h-px w-10 bg-ignite" />
+            <span className="font-display text-xs font-bold uppercase tracking-[0.4em] text-ignite">
+              About Us
+            </span>
+            <span className="h-px w-10 bg-ignite" />
+          </div>
+          <h2 className="mt-4 font-display text-4xl font-black uppercase md:text-5xl">
+            Welcome to <span className="text-ignite">Elway Powersports</span>
+          </h2>
+          <div className="mx-auto mt-6 h-1 w-20 bg-ignite" />
+          <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p>
+              Elway Powersports offers an incredible selection of products from the biggest
+              names in the industry, including BMW, Can-Am, Polaris®, Harley-Davidson®, Honda,
+              Indian Motorcycle, Sea-Doo, Ski-Doo, Spyder, Ryker, Kawasaki, Triumph, Yamaha
+              and Suzuki. Whether you're shopping for a new or used Side-by-Side, ATV, UTV,
+              Dirt Bike, Scooter, Motorcycle, Personal Watercraft, Trailer or Electric Bike —
+              you're sure to find it at one of our growing Elway Powersports locations.
+            </p>
+            <p>
+              Started in 2021, our mission is to become a leader in the industry by providing
+              every customer a superior and authentic experience that exceeds expectations and
+              sets the bar for what a powersports dealership should look and feel like.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SHOP BY TYPE */}
+      <section className="border-t border-border bg-background">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-3">
+              <span className="h-px w-10 bg-ignite" />
+              <span className="font-display text-xs font-bold uppercase tracking-[0.4em] text-ignite">
+                Inventory
+              </span>
+              <span className="h-px w-10 bg-ignite" />
+            </div>
+            <h2 className="mt-4 font-display text-4xl font-black uppercase md:text-5xl">
+              Shop By <span className="text-ignite">Type</span>
+            </h2>
+            <div className="mx-auto mt-4 h-1 w-20 bg-ignite" />
+          </div>
+          <div className="mt-14 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+            {categories.map((cat) => (
+              <a
+                key={cat.name}
+                href="#"
+                className="group flex flex-col items-center rounded-xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:border-ignite hover:shadow-xl hover:shadow-ignite/10"
+              >
+                <div className="flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-lg bg-surface">
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    width={768}
+                    height={576}
+                    loading="lazy"
+                    className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <h3 className="mt-4 font-display text-lg font-black uppercase tracking-wide text-foreground transition-colors group-hover:text-ignite">
+                  {cat.name}
+                </h3>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* JOIN THE TEAM */}
+      <section className="relative border-t border-border overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={heroImg}
+            alt=""
+            className="h-full w-full object-cover"
+            width={1920}
+            height={1280}
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-foreground/60" />
+        </div>
+        <div className="relative mx-auto max-w-4xl px-6 py-20 text-center">
+          <div className="rounded-2xl border border-white/20 bg-card/95 p-10 shadow-2xl backdrop-blur md:p-14">
+            <div className="flex items-center justify-center gap-3">
+              <span className="h-px w-10 bg-ignite" />
+              <span className="font-display text-xs font-bold uppercase tracking-[0.4em] text-ignite">
+                Careers
+              </span>
+              <span className="h-px w-10 bg-ignite" />
+            </div>
+            <h2 className="mt-4 font-display text-4xl font-black uppercase md:text-5xl">
+              Join The <span className="text-ignite">Team</span>
+            </h2>
+            <div className="mx-auto mt-4 h-1 w-20 bg-ignite" />
+            <p className="mx-auto mt-6 max-w-xl text-muted-foreground">
+              We're always looking for passionate riders, technicians, and sales pros to grow
+              with us across our six dealerships.
+            </p>
+            <a
+              href="#"
+              className="mt-8 inline-flex items-center gap-2 rounded-md bg-ignite px-7 py-3.5 font-display text-sm font-bold uppercase tracking-wider text-ignite-foreground shadow-lg shadow-ignite/30 transition-transform hover:-translate-y-0.5"
+            >
+              <Users className="h-4 w-4" /> Apply Now <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </section>
 
