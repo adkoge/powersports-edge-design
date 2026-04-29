@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin, Phone, Search, Monitor, Tag, ChevronDown, Zap } from "lucide-react";
 import heroImg from "@/assets/hero-utv.jpg";
+import { BrandsCarousel } from "@/components/BrandsCarousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
