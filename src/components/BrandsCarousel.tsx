@@ -29,7 +29,7 @@ export function BrandsCarousel() {
         {loop.map((brand, i) => (
           <div
             key={`${brand.name}-${i}`}
-            className="flex h-28 w-64 shrink-0 flex-col items-center justify-center rounded-none border border-border bg-surface px-6 transition-all hover:-translate-y-1 hover:border-ignite hover:bg-card hover:shadow-lg hover:shadow-ignite/10"
+            className="flex h-28 w-64 shrink-0 flex-col items-center justify-center rounded-xl border border-border bg-surface px-6 transition-all hover:-translate-y-1 hover:border-ignite hover:bg-card hover:shadow-lg hover:shadow-ignite/10"
           >
             <span className="font-display text-xl font-black uppercase tracking-tight text-foreground">
               {brand.name}
