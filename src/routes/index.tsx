@@ -221,9 +221,9 @@ function Index() {
               <a
                 key={cat.name}
                 href="#"
-                className="group flex flex-col items-center rounded-xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:border-ignite hover:shadow-xl hover:shadow-ignite/10"
+                className="group flex flex-col items-center rounded-none border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:border-ignite hover:shadow-xl hover:shadow-ignite/10"
               >
-                <div className="flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-lg bg-surface">
+                <div className="flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-none bg-surface">
                   <img
                     src={cat.image}
                     alt={cat.name}
@@ -256,7 +256,7 @@ function Index() {
           <div className="absolute inset-0 bg-foreground/60" />
         </div>
         <div className="relative mx-auto max-w-4xl px-6 py-20 text-center">
-          <div className="rounded-2xl border border-white/20 bg-card/95 p-10 shadow-2xl backdrop-blur md:p-14">
+          <div className="rounded-none border border-white/20 bg-card/95 p-10 shadow-2xl backdrop-blur md:p-14">
             <div className="flex items-center justify-center gap-3">
               <span className="h-px w-10 bg-ignite" />
               <span className="font-display text-xs font-bold uppercase tracking-[0.4em] text-ignite">
@@ -274,7 +274,7 @@ function Index() {
             </p>
             <a
               href="#"
-              className="mt-8 inline-flex items-center gap-2 rounded-md bg-ignite px-7 py-3.5 font-display text-sm font-bold uppercase tracking-wider text-ignite-foreground shadow-lg shadow-ignite/30 transition-transform hover:-translate-y-0.5"
+              className="mt-8 inline-flex items-center gap-2 rounded-none bg-ignite px-7 py-3.5 font-display text-sm font-bold uppercase tracking-wider text-ignite-foreground shadow-lg shadow-ignite/30 transition-transform hover:-translate-y-0.5"
             >
               <Users className="h-4 w-4" /> Apply Now <ArrowRight className="h-4 w-4" />
             </a>
@@ -302,7 +302,7 @@ function Index() {
 
 function DealerCard({ name, city, phone }: Location) {
   return (
-    <article className="group relative overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:border-ignite hover:shadow-xl hover:shadow-ignite/10">
+    <article className="group relative overflow-hidden rounded-none border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:border-ignite hover:shadow-xl hover:shadow-ignite/10">
       {/* Top accent bar */}
       <div className="h-1 w-full bg-ignite" />
 
@@ -328,13 +328,13 @@ function DealerCard({ name, city, phone }: Location) {
         <div className="mt-6 grid grid-cols-2 gap-2">
           <a
             href="#"
-            className="flex items-center justify-center gap-2 rounded-md border border-border bg-surface-elevated px-3 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-foreground transition-colors hover:border-ignite hover:text-ignite"
+            className="flex items-center justify-center gap-2 rounded-none border border-border bg-surface-elevated px-3 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-foreground transition-colors hover:border-ignite hover:text-ignite"
           >
             <Monitor className="h-3.5 w-3.5" /> Visit Site
           </a>
           <a
             href="#"
-            className="flex items-center justify-center gap-2 rounded-md bg-ignite px-3 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-ignite-foreground transition-transform hover:-translate-y-0.5"
+            className="flex items-center justify-center gap-2 rounded-none bg-ignite px-3 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-ignite-foreground transition-transform hover:-translate-y-0.5"
           >
             <Tag className="h-3.5 w-3.5" /> Shop In-Stock
           </a>
