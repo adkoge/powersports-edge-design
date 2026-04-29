@@ -51,7 +51,6 @@ const locations: Location[] = [
   { name: "Elway Powersports of Laramie", city: "Laramie, WY", phone: "307-400-3537" },
 ];
 
-const navItems = [
 function Index() {
   return (
     <div>
@@ -68,7 +67,6 @@ function Index() {
           />
           <div className="absolute inset-0 bg-foreground/30" />
         </div>
-      {/* HERO + DEALER GRID */}
       <section className="relative">
         {/* Background */}
         <div className="absolute inset-0">
@@ -228,20 +226,6 @@ function Index() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-border bg-background">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-6 py-8 text-sm text-muted-foreground md:flex-row md:items-center">
-          <div className="flex items-center gap-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded bg-ignite text-ignite-foreground">
-              <Zap className="h-4 w-4" strokeWidth={2.5} />
-            </span>
-            <span className="font-display font-bold uppercase tracking-wider text-foreground">
-              Elway Powersports
-            </span>
-          </div>
-          <p>© {new Date().getFullYear()} Elway Powersports. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }
