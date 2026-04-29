@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin, Phone, Search, Monitor, Tag, ChevronDown, Zap } from "lucide-react";
 import heroImg from "@/assets/hero-utv.jpg";
+import { BrandsCarousel } from "@/components/BrandsCarousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -135,16 +136,10 @@ function Index() {
               <h2 className="mt-3 font-display text-4xl font-black uppercase">Our Brands</h2>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-3 md:grid-cols-6">
-            {["Harley-Davidson", "Honda", "Yamaha", "Polaris", "Can-Am", "Kawasaki"].map((b) => (
-              <div
-                key={b}
-                className="flex h-24 items-center justify-center bg-surface-elevated px-4 text-center font-display text-sm font-bold uppercase tracking-wider text-foreground/80 transition-colors hover:text-ignite"
-              >
-                {b}
-              </div>
-            ))}
-          </div>
+          <BrandsCarousel />
+          <p className="mt-6 text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            Hover to pause · Tap a logo to explore inventory
+          </p>
         </div>
       </section>
 
