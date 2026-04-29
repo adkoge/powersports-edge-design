@@ -61,24 +61,42 @@ const navItems = [
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* TOP NAV — original layout: logo + links left, search right */}
-      <header className="relative z-30 border-b border-border bg-background/80 backdrop-blur-md">
+      {/* TOP UTILITY STRIP */}
+      <div className="bg-steel text-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2 font-display text-[11px] font-semibold uppercase tracking-[0.25em]">
+          <span className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 bg-ignite" />
+            Six Locations · Three States
+          </span>
+          <span className="hidden text-white/60 md:inline">
+            Sales · Service · Parts · Financing
+          </span>
+        </div>
+      </div>
+
+      {/* TOP NAV */}
+      <header className="relative z-30 border-b-2 border-steel bg-background">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
-          <a href="/" className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-ignite text-ignite-foreground">
-              <Zap className="h-5 w-5" strokeWidth={2.5} />
+          <a href="/" className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center bg-steel">
+              <Zap className="h-5 w-5 text-ignite" strokeWidth={2.5} fill="currentColor" />
             </span>
-            <span className="font-display text-lg font-black uppercase tracking-wider">
-              Elway Powersports
-            </span>
+            <div className="flex flex-col leading-none">
+              <span className="font-display text-xl font-black uppercase tracking-wider">
+                Elway
+              </span>
+              <span className="font-display text-[10px] font-bold uppercase tracking-[0.35em] text-ignite">
+                Powersports
+              </span>
+            </div>
           </a>
 
-          <nav className="hidden items-center gap-1 md:flex">
+          <nav className="hidden items-center gap-0 md:flex">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href="#"
-                className="flex items-center gap-1 rounded-md px-4 py-2 font-display text-sm font-bold uppercase tracking-wider text-foreground/80 transition-colors hover:bg-surface hover:text-ignite"
+                className="flex items-center gap-1 border-b-2 border-transparent px-5 py-2 font-display text-sm font-bold uppercase tracking-wider text-foreground transition-colors hover:border-ignite hover:text-ignite"
               >
                 {item.label}
                 {item.hasMenu && <ChevronDown className="h-3.5 w-3.5" />}
@@ -86,7 +104,7 @@ function Index() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2 rounded-md border border-border bg-surface pl-3 pr-1 py-1 focus-within:border-ignite transition-colors">
+          <div className="flex items-center gap-2 border-2 border-border bg-surface pl-3 pr-1 py-1 focus-within:border-ignite transition-colors">
             <Search className="h-4 w-4 text-muted-foreground" />
             <input
               type="text"
@@ -95,12 +113,13 @@ function Index() {
             />
             <button
               aria-label="Search"
-              className="flex h-7 w-7 items-center justify-center rounded bg-ignite text-ignite-foreground transition-transform hover:-translate-y-0.5"
+              className="flex h-8 w-8 items-center justify-center bg-ignite text-ignite-foreground transition-transform hover:-translate-y-0.5"
             >
               <Search className="h-3.5 w-3.5" strokeWidth={2.5} />
             </button>
           </div>
         </div>
+        <div className="bg-stripes h-1 w-full opacity-80" />
       </header>
 
       {/* HERO + DEALER GRID */}
