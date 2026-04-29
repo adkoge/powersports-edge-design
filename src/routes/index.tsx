@@ -52,57 +52,22 @@ const locations: Location[] = [
 ];
 
 const navItems = [
-  { label: "Home", hasMenu: false },
-  { label: "Inventory", hasMenu: true },
-  { label: "Corporate", hasMenu: true },
-  { label: "Contact", hasMenu: false },
-];
-
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* TOP NAV — original layout: logo + links left, search right */}
-      <header className="relative z-30 border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
-          <a href="/" className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-ignite text-ignite-foreground">
-              <Zap className="h-5 w-5" strokeWidth={2.5} />
-            </span>
-            <span className="font-display text-lg font-black uppercase tracking-wider">
-              Elway Powersports
-            </span>
-          </a>
-
-          <nav className="hidden items-center gap-1 md:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href="#"
-                className="flex items-center gap-1 rounded-md px-4 py-2 font-display text-sm font-bold uppercase tracking-wider text-foreground/80 transition-colors hover:bg-surface hover:text-ignite"
-              >
-                {item.label}
-                {item.hasMenu && <ChevronDown className="h-3.5 w-3.5" />}
-              </a>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-2 rounded-md border border-border bg-surface pl-3 pr-1 py-1 focus-within:border-ignite transition-colors">
-            <Search className="h-4 w-4 text-muted-foreground" />
-            <input
-              type="text"
-              placeholder="Inventory Search"
-              className="w-44 bg-transparent py-1.5 text-sm text-foreground outline-none placeholder:text-muted-foreground"
-            />
-            <button
-              aria-label="Search"
-              className="flex h-7 w-7 items-center justify-center rounded bg-ignite text-ignite-foreground transition-transform hover:-translate-y-0.5"
-            >
-              <Search className="h-3.5 w-3.5" strokeWidth={2.5} />
-            </button>
-          </div>
+    <div>
+      {/* HERO + DEALER GRID */}
+      <section className="relative">
+        {/* Background */}
+        <div className="absolute inset-0">
+          <img
+            src={heroImg}
+            alt="UTVs racing across red rock desert terrain"
+            className="h-full w-full object-cover"
+            width={1920}
+            height={1280}
+          />
+          <div className="absolute inset-0 bg-foreground/30" />
         </div>
-      </header>
-
       {/* HERO + DEALER GRID */}
       <section className="relative">
         {/* Background */}
