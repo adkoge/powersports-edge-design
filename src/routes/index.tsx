@@ -302,41 +302,44 @@ function Index() {
 
 function DealerCard({ name, city, phone }: Location) {
   return (
-    <article className="group relative overflow-hidden rounded-none border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:border-ignite hover:shadow-xl hover:shadow-ignite/10">
-      {/* Top accent bar */}
-      <div className="h-1 w-full bg-ignite" />
+    <article className="group relative overflow-hidden border-2 border-steel bg-card shadow-[6px_6px_0_0_var(--color-ignite)] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0_0_var(--color-ignite)]">
+      {/* Industrial header strip */}
+      <div className="flex items-stretch border-b-2 border-steel bg-steel">
+        <div className="flex w-2 bg-ignite" />
+        <div className="flex-1 px-5 py-3">
+          <h3 className="font-display text-lg font-black uppercase leading-tight tracking-wide text-white min-h-[3rem] flex items-center">
+            {name}
+          </h3>
+        </div>
+      </div>
 
       <div className="p-6">
-        <h3 className="font-display text-xl font-black uppercase leading-tight tracking-tight min-h-[3.5rem]">
-          {name}
-        </h3>
-
-        <div className="mt-5 space-y-2.5 text-sm">
+        <div className="space-y-3 text-sm">
           <div className="flex items-center gap-2.5 text-muted-foreground">
-            <MapPin className="h-4 w-4 text-ignite" />
-            <span className="font-medium">{city}</span>
+            <MapPin className="h-4 w-4 text-ignite" strokeWidth={2.5} />
+            <span className="font-display font-semibold uppercase tracking-wider">{city}</span>
           </div>
           <a
             href={`tel:${phone}`}
-            className="flex items-center gap-2.5 font-display text-base font-bold tracking-wide text-foreground hover:text-ignite transition-colors"
+            className="flex items-center gap-2.5 font-display text-lg font-black tracking-wide text-foreground hover:text-ignite transition-colors"
           >
-            <Phone className="h-4 w-4 text-ignite" />
+            <Phone className="h-4 w-4 text-ignite" strokeWidth={2.5} />
             {phone}
           </a>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-2">
+        <div className="mt-6 grid grid-cols-2 gap-0 border-2 border-steel">
           <a
             href="#"
-            className="flex items-center justify-center gap-2 rounded-none border border-border bg-surface-elevated px-3 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-foreground transition-colors hover:border-ignite hover:text-ignite"
+            className="flex items-center justify-center gap-2 border-r-2 border-steel bg-card px-3 py-3 font-display text-xs font-black uppercase tracking-wider text-foreground transition-colors hover:bg-surface hover:text-ignite"
           >
-            <Monitor className="h-3.5 w-3.5" /> Visit Site
+            <Monitor className="h-3.5 w-3.5" strokeWidth={2.5} /> Visit Site
           </a>
           <a
             href="#"
-            className="flex items-center justify-center gap-2 rounded-none bg-ignite px-3 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-ignite-foreground transition-transform hover:-translate-y-0.5"
+            className="flex items-center justify-center gap-2 bg-ignite px-3 py-3 font-display text-xs font-black uppercase tracking-wider text-ignite-foreground transition-colors hover:bg-steel"
           >
-            <Tag className="h-3.5 w-3.5" /> Shop In-Stock
+            <Tag className="h-3.5 w-3.5" strokeWidth={2.5} /> Shop In-Stock
           </a>
         </div>
       </div>
