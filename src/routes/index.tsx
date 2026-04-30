@@ -56,23 +56,51 @@ function Index() {
   return (
     <div>
       {/* HERO + DEALER GRID */}
-      <section className="relative">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt="UTVs racing across red rock desert terrain"
-            className="h-full w-full object-cover"
-            width={1920}
-            height={1280}
-          />
-          <div className="absolute inset-0 bg-foreground/30" />
-        </div>
+      <section className="relative overflow-hidden bg-background">
+        {/* Subtle topographic terrain texture - left & bottom */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse at 0% 100%, var(--ignite) 0%, transparent 55%), repeating-radial-gradient(circle at 10% 90%, transparent 0, transparent 18px, var(--foreground) 18px, var(--foreground) 19px, transparent 19px, transparent 36px)",
+            backgroundSize: "100% 100%, 480px 480px",
+            backgroundRepeat: "no-repeat, no-repeat",
+            backgroundPosition: "center, left bottom",
+          }}
+        />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20">
+        <div className="relative mx-auto max-w-7xl px-6 pt-12 pb-10 lg:pt-16">
+          {/* Top: Headline left, image right */}
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-6">
+            <div className="lg:col-span-5">
+              <div className="flex items-center gap-3">
+                <span className="h-px w-8 bg-ignite" />
+                <span className="font-display text-xs font-bold uppercase tracking-[0.4em] text-ignite">
+                  Six Locations.
+                </span>
+              </div>
+              <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.95] text-foreground sm:text-6xl lg:text-7xl xl:text-8xl">
+                Power.<br />Passion.<br />Performance.
+              </h1>
+              <p className="mt-6 font-display text-sm font-bold uppercase tracking-[0.35em] text-ignite">
+                Fourteen Brands
+              </p>
+            </div>
 
-          {/* Dealer cards */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="lg:col-span-7">
+              <img
+                src={heroAction}
+                alt="Sport UTV racing through mountain terrain kicking up dust"
+                width={1280}
+                height={896}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Compact dealer cards */}
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {locations.map((loc) => (
               <DealerCard key={loc.name} {...loc} />
             ))}
