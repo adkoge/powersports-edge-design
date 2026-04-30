@@ -58,38 +58,21 @@ function Index() {
     <div>
       {/* HERO + DEALER GRID */}
       <section className="relative flex min-h-screen flex-col overflow-hidden bg-background">
-        {/* Organic topographic terrain — generated via SVG turbulence contours */}
-        <svg
+        {/* Organic topographic contour map */}
+        <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          viewBox="0 0 1200 900"
-        >
-          <defs>
-            <filter id="topo" x="0" y="0" width="100%" height="100%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.006 0.009" numOctaves="3" seed="7" />
-              <feColorMatrix
-                values="0 0 0 0 0
-                        0 0 0 0 0
-                        0 0 0 0 0
-                        0 0 0 18 -7"
-              />
-              <feComposite in2="SourceGraphic" operator="in" />
-            </filter>
-            <radialGradient id="topoMask" cx="0%" cy="100%" r="95%">
-              <stop offset="0%" stopColor="white" stopOpacity="1" />
-              <stop offset="55%" stopColor="white" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="white" stopOpacity="0" />
-            </radialGradient>
-            <mask id="fadeMask">
-              <rect width="1200" height="900" fill="url(#topoMask)" />
-            </mask>
-          </defs>
-          <g mask="url(#fadeMask)">
-            <rect width="1200" height="900" fill="var(--foreground)" filter="url(#topo)" />
-          </g>
-        </svg>
+          className="pointer-events-none absolute inset-0 opacity-60"
+          style={{
+            backgroundImage: `url(${topoContours})`,
+            backgroundSize: "1200px auto",
+            backgroundRepeat: "repeat",
+            backgroundPosition: "left bottom",
+            maskImage:
+              "radial-gradient(ellipse 90% 80% at 0% 100%, black 0%, black 35%, transparent 75%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 90% 80% at 0% 100%, black 0%, black 35%, transparent 75%)",
+          }}
+        />
 
         {/* Warm accent glow bottom-left */}
         <div
