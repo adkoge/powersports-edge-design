@@ -70,37 +70,52 @@ function Index() {
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-6 pt-12 pb-10 lg:pt-16">
-          {/* Top: Headline left, image right */}
-          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-6">
-            <div className="lg:col-span-5">
-              <div className="flex items-center gap-3">
-                <span className="h-px w-8 bg-ignite" />
-                <span className="font-display text-xs font-bold uppercase tracking-[0.4em] text-ignite">
-                  Six Locations.
-                </span>
-              </div>
-              <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.95] text-foreground sm:text-6xl lg:text-7xl xl:text-8xl">
-                Power.<br />Passion.<br />Performance.
-              </h1>
-              <p className="mt-6 font-display text-sm font-bold uppercase tracking-[0.35em] text-ignite">
-                Fourteen Brands
-              </p>
-            </div>
+        {/* Hero image — positioned right, extends down behind the cards */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-0 w-[70%] sm:w-[65%] lg:w-[62%]"
+        >
+          <img
+            src={heroAction}
+            alt=""
+            width={1280}
+            height={896}
+            className="h-full w-full object-cover object-left"
+          />
+          {/* Left-edge fade blending into background */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to right, var(--background) 0%, var(--background) 12%, transparent 45%)",
+            }}
+          />
+          {/* Bottom fade so cards sit nicely on top */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-48"
+            style={{
+              background:
+                "linear-gradient(to bottom, transparent 0%, color-mix(in oklab, var(--background) 75%, transparent) 55%, var(--background) 100%)",
+            }}
+          />
+        </div>
 
-            <div className="lg:col-span-7">
-              <img
-                src={heroAction}
-                alt="Sport UTV racing through mountain terrain kicking up dust"
-                width={1280}
-                height={896}
-                className="w-full h-auto object-contain"
-              />
+        <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-10 lg:pt-24">
+          {/* Headline */}
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-ignite" />
+              <span className="font-display text-xs font-bold uppercase tracking-[0.4em] text-ignite">
+                Six Locations.
+              </span>
             </div>
+            <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.95] text-foreground sm:text-6xl lg:text-7xl xl:text-8xl">
+              Power.<br />Passion.<br />Performance.
+            </h1>
           </div>
 
-          {/* Compact dealer cards */}
-          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Compact dealer cards — pulled up to overlap the hero image */}
+          <div className="relative mt-16 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:mt-28 lg:grid-cols-3">
             {locations.map((loc) => (
               <DealerCard key={loc.name} {...loc} />
             ))}
