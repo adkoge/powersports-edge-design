@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Phone, Monitor, Tag, ArrowRight, Users } from "lucide-react";
 import heroImg from "@/assets/hero-utv.jpg";
+import heroAction from "@/assets/hero-utv-action.jpg";
 import { BrandsCarousel } from "@/components/BrandsCarousel";
 import offroadImg from "@/assets/category-offroad.jpg";
 import motorcyclesImg from "@/assets/category-motorcycles.jpg";
@@ -55,23 +56,51 @@ function Index() {
   return (
     <div>
       {/* HERO + DEALER GRID */}
-      <section className="relative">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt="UTVs racing across red rock desert terrain"
-            className="h-full w-full object-cover"
-            width={1920}
-            height={1280}
-          />
-          <div className="absolute inset-0 bg-foreground/30" />
-        </div>
+      <section className="relative overflow-hidden bg-background">
+        {/* Subtle topographic terrain texture - left & bottom */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse at 0% 100%, var(--ignite) 0%, transparent 55%), repeating-radial-gradient(circle at 10% 90%, transparent 0, transparent 18px, var(--foreground) 18px, var(--foreground) 19px, transparent 19px, transparent 36px)",
+            backgroundSize: "100% 100%, 480px 480px",
+            backgroundRepeat: "no-repeat, no-repeat",
+            backgroundPosition: "center, left bottom",
+          }}
+        />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20">
+        <div className="relative mx-auto max-w-7xl px-6 pt-12 pb-10 lg:pt-16">
+          {/* Top: Headline left, image right */}
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-6">
+            <div className="lg:col-span-5">
+              <div className="flex items-center gap-3">
+                <span className="h-px w-8 bg-ignite" />
+                <span className="font-display text-xs font-bold uppercase tracking-[0.4em] text-ignite">
+                  Six Locations.
+                </span>
+              </div>
+              <h1 className="mt-4 font-display text-5xl font-black uppercase leading-[0.95] text-foreground sm:text-6xl lg:text-7xl xl:text-8xl">
+                Power.<br />Passion.<br />Performance.
+              </h1>
+              <p className="mt-6 font-display text-sm font-bold uppercase tracking-[0.35em] text-ignite">
+                Fourteen Brands
+              </p>
+            </div>
 
-          {/* Dealer cards */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="lg:col-span-7">
+              <img
+                src={heroAction}
+                alt="Sport UTV racing through mountain terrain kicking up dust"
+                width={1280}
+                height={896}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Compact dealer cards */}
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {locations.map((loc) => (
               <DealerCard key={loc.name} {...loc} />
             ))}
@@ -220,41 +249,43 @@ function Index() {
 
 function DealerCard({ name, city, phone }: Location) {
   return (
-    <article className="group relative overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:border-ignite hover:shadow-xl hover:shadow-ignite/10">
-      {/* Top accent bar */}
-      <div className="h-1 w-full bg-ignite" />
-
-      <div className="p-6">
-        <h3 className="font-display text-xl font-black uppercase leading-tight tracking-tight min-h-[3.5rem]">
-          {name}
-        </h3>
-
-        <div className="mt-5 space-y-2.5 text-sm">
-          <div className="flex items-center gap-2.5 text-muted-foreground">
+    <article className="group relative rounded-lg border border-border bg-card/95 shadow-sm backdrop-blur transition-all hover:-translate-y-0.5 hover:border-ignite hover:shadow-md hover:shadow-ignite/10">
+      <div className="p-4">
+        <div className="flex items-start gap-3">
+          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-muted">
             <MapPin className="h-4 w-4 text-ignite" />
+          </span>
+          <h3 className="font-display text-base font-black uppercase leading-tight tracking-tight">
+            {name}
+          </h3>
+        </div>
+
+        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 pl-12 text-sm">
+          <div className="flex items-center gap-1.5 text-muted-foreground">
+            <MapPin className="h-3.5 w-3.5 text-ignite" />
             <span className="font-medium">{city}</span>
           </div>
           <a
             href={`tel:${phone}`}
-            className="flex items-center gap-2.5 font-display text-base font-bold tracking-wide text-foreground hover:text-ignite transition-colors"
+            className="flex items-center gap-1.5 font-semibold text-ignite hover:underline"
           >
-            <Phone className="h-4 w-4 text-ignite" />
+            <Phone className="h-3.5 w-3.5" />
             {phone}
           </a>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-2">
+        <div className="mt-3 grid grid-cols-2 gap-2">
           <a
             href="#"
-            className="flex items-center justify-center gap-2 rounded-md border border-border bg-surface-elevated px-3 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-foreground transition-colors hover:border-ignite hover:text-ignite"
+            className="flex items-center justify-center gap-1.5 rounded-md border border-ignite/40 px-2 py-2 font-display text-[11px] font-bold uppercase tracking-wider text-ignite transition-colors hover:bg-ignite/5"
           >
-            <Monitor className="h-3.5 w-3.5" /> Visit Site
+            Visit Site <Monitor className="h-3 w-3" />
           </a>
           <a
             href="#"
-            className="flex items-center justify-center gap-2 rounded-md bg-ignite px-3 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-ignite-foreground transition-transform hover:-translate-y-0.5"
+            className="flex items-center justify-center gap-1.5 rounded-md bg-ignite px-2 py-2 font-display text-[11px] font-bold uppercase tracking-wider text-ignite-foreground transition-transform hover:-translate-y-0.5"
           >
-            <Tag className="h-3.5 w-3.5" /> Shop In-Stock
+            <Tag className="h-3 w-3" /> Shop In-Stock
           </a>
         </div>
       </div>
