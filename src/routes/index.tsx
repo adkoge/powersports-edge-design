@@ -56,17 +56,47 @@ function Index() {
   return (
     <div>
       {/* HERO + DEALER GRID */}
-      <section className="relative overflow-hidden bg-background">
-        {/* Subtle topographic terrain texture - left & bottom */}
+      <section className="relative flex min-h-screen flex-col overflow-hidden bg-background">
+        {/* Organic topographic terrain — generated via SVG turbulence contours */}
+        <svg
+          aria-hidden
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          viewBox="0 0 1200 900"
+        >
+          <defs>
+            <filter id="topo" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.006 0.009" numOctaves="3" seed="7" />
+              <feColorMatrix
+                values="0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 18 -7"
+              />
+              <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+            <radialGradient id="topoMask" cx="0%" cy="100%" r="95%">
+              <stop offset="0%" stopColor="white" stopOpacity="1" />
+              <stop offset="55%" stopColor="white" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="white" stopOpacity="0" />
+            </radialGradient>
+            <mask id="fadeMask">
+              <rect width="1200" height="900" fill="url(#topoMask)" />
+            </mask>
+          </defs>
+          <g mask="url(#fadeMask)">
+            <rect width="1200" height="900" fill="var(--foreground)" filter="url(#topo)" />
+          </g>
+        </svg>
+
+        {/* Warm accent glow bottom-left */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.07]"
+          className="pointer-events-none absolute inset-0"
           style={{
-            backgroundImage:
-              "radial-gradient(ellipse at 0% 100%, var(--ignite) 0%, transparent 55%), repeating-radial-gradient(circle at 10% 90%, transparent 0, transparent 18px, var(--foreground) 18px, var(--foreground) 19px, transparent 19px, transparent 36px)",
-            backgroundSize: "100% 100%, 480px 480px",
-            backgroundRepeat: "no-repeat, no-repeat",
-            backgroundPosition: "center, left bottom",
+            background:
+              "radial-gradient(ellipse 60% 50% at 0% 100%, color-mix(in oklab, var(--ignite) 12%, transparent) 0%, transparent 70%)",
           }}
         />
 
@@ -92,7 +122,7 @@ function Index() {
           />
           {/* Bottom fade so cards sit nicely on top */}
           <div
-            className="absolute inset-x-0 bottom-0 h-48"
+            className="absolute inset-x-0 bottom-0 h-56"
             style={{
               background:
                 "linear-gradient(to bottom, transparent 0%, color-mix(in oklab, var(--background) 75%, transparent) 55%, var(--background) 100%)",
@@ -100,7 +130,7 @@ function Index() {
           />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-10 lg:pt-24">
+        <div className="relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between px-6 pt-16 pb-10 lg:pt-24">
           {/* Headline */}
           <div className="max-w-2xl">
             <div className="flex items-center gap-3">
@@ -115,7 +145,7 @@ function Index() {
           </div>
 
           {/* Compact dealer cards — pulled up to overlap the hero image */}
-          <div className="relative mt-16 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:mt-28 lg:grid-cols-3">
+          <div className="relative mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {locations.map((loc) => (
               <DealerCard key={loc.name} {...loc} />
             ))}
