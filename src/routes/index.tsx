@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Phone, Monitor, Tag, ArrowRight, Users } from "lucide-react";
 import heroImg from "@/assets/hero-utv.jpg";
+import heroAction from "@/assets/hero-utv-action.jpg";
 import { BrandsCarousel } from "@/components/BrandsCarousel";
 import offroadImg from "@/assets/category-offroad.jpg";
 import motorcyclesImg from "@/assets/category-motorcycles.jpg";
