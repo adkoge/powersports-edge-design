@@ -249,41 +249,43 @@ function Index() {
 
 function DealerCard({ name, city, phone }: Location) {
   return (
-    <article className="group relative overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:border-ignite hover:shadow-xl hover:shadow-ignite/10">
-      {/* Top accent bar */}
-      <div className="h-1 w-full bg-ignite" />
-
-      <div className="p-6">
-        <h3 className="font-display text-xl font-black uppercase leading-tight tracking-tight min-h-[3.5rem]">
-          {name}
-        </h3>
-
-        <div className="mt-5 space-y-2.5 text-sm">
-          <div className="flex items-center gap-2.5 text-muted-foreground">
+    <article className="group relative rounded-lg border border-border bg-card/95 shadow-sm backdrop-blur transition-all hover:-translate-y-0.5 hover:border-ignite hover:shadow-md hover:shadow-ignite/10">
+      <div className="p-4">
+        <div className="flex items-start gap-3">
+          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-muted">
             <MapPin className="h-4 w-4 text-ignite" />
+          </span>
+          <h3 className="font-display text-base font-black uppercase leading-tight tracking-tight">
+            {name}
+          </h3>
+        </div>
+
+        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 pl-12 text-sm">
+          <div className="flex items-center gap-1.5 text-muted-foreground">
+            <MapPin className="h-3.5 w-3.5 text-ignite" />
             <span className="font-medium">{city}</span>
           </div>
           <a
             href={`tel:${phone}`}
-            className="flex items-center gap-2.5 font-display text-base font-bold tracking-wide text-foreground hover:text-ignite transition-colors"
+            className="flex items-center gap-1.5 font-semibold text-ignite hover:underline"
           >
-            <Phone className="h-4 w-4 text-ignite" />
+            <Phone className="h-3.5 w-3.5" />
             {phone}
           </a>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-2">
+        <div className="mt-3 grid grid-cols-2 gap-2">
           <a
             href="#"
-            className="flex items-center justify-center gap-2 rounded-md border border-border bg-surface-elevated px-3 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-foreground transition-colors hover:border-ignite hover:text-ignite"
+            className="flex items-center justify-center gap-1.5 rounded-md border border-ignite/40 px-2 py-2 font-display text-[11px] font-bold uppercase tracking-wider text-ignite transition-colors hover:bg-ignite/5"
           >
-            <Monitor className="h-3.5 w-3.5" /> Visit Site
+            Visit Site <Monitor className="h-3 w-3" />
           </a>
           <a
             href="#"
-            className="flex items-center justify-center gap-2 rounded-md bg-ignite px-3 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-ignite-foreground transition-transform hover:-translate-y-0.5"
+            className="flex items-center justify-center gap-1.5 rounded-md bg-ignite px-2 py-2 font-display text-[11px] font-bold uppercase tracking-wider text-ignite-foreground transition-transform hover:-translate-y-0.5"
           >
-            <Tag className="h-3.5 w-3.5" /> Shop In-Stock
+            <Tag className="h-3 w-3" /> Shop In-Stock
           </a>
         </div>
       </div>
